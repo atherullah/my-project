@@ -18,7 +18,13 @@ jobs:
         run: docker run -d -p 5000:5000 --name test-container my-app:${{ github.sha }}
 
       - name: Wait for container
-        run: sleep 3
+        run: sleep 5
+
+      - name: Check container status
+        run: docker ps -a
+
+      - name: Show container logs
+        run: docker logs test-container
 
       - name: Test if app responds
         run: curl -f http://localhost:5000 || exit 1
