@@ -1,4 +1,3 @@
-cat > .github/workflows/ci.yml << 'EOF'
 name: Docker CI
 
 on:
@@ -26,4 +25,3 @@ jobs:
 
       - name: Stop container
         run: docker stop test-container
-EOF
